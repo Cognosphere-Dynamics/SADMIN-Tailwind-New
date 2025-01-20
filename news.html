@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cognosphere Dynamics Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 h-screen flex items-start justify-center">
+    <div class="w-full max-w-4xl">
+      <!-- Heading -->
+      <h2 class="text-center text-3xl font-bold mt-8">News Updates</h2>
+  
+      <!-- Button -->
+      <div class="mt-4">
+        <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Add News</button>
+      </div>
+    </div>
+      
+
+  <!-- Modal -->
+  <div id="newsModal" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
+    <div class="bg-white w-96 rounded-lg shadow-lg">
+      <div class="flex justify-between items-center p-4 border-b">
+        <h2 class="text-lg font-semibold">Add/Update News</h2>
+        <button id="closeModal" class="text-gray-500 hover:text-gray-700">&times;</button>
+      </div>
+      <div class="p-4">
+        <form id="newsForm" class="space-y-4">
+          <div>
+            <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+            <input type="text" id="title" name="title" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300" required>
+          </div>
+          <div>
+            <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
+            <textarea id="content" name="content" rows="3" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300" required></textarea>
+          </div>
+          <div>
+            <label for="dateIssued" class="block text-sm font-medium text-gray-700">Date Issued</label>
+            <input type="date" id="dateIssued" name="dateIssued" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300" required>
+          </div>
+          <div>
+            <label for="dateTill" class="block text-sm font-medium text-gray-700">Date Till</label>
+            <input type="date" id="dateTill" name="dateTill" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300">
+          </div>
+          <div>
+            <label for="thumbnail" class="block text-sm font-medium text-gray-700">Thumbnail</label>
+            <input type="file" id="thumbnail" name="thumbnail" class="w-full text-gray-700">
+          </div>
+          <div>
+            <button type="submit" class="w-full px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-500">Add News</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Display Information -->
+  <div id="newsInfo" class="p-8 hidden">
+    <h3 class="text-xl font-semibold">News Information</h3>
+    <p id="newsDetails" class="mt-2 text-gray-700"></p>
+  </div>
+
+  <script>
+    const addNewsButton = document.getElementById('addNewsButton');
+    const newsModal = document.getElementById('newsModal');
+    const closeModal = document.getElementById('closeModal');
+    const newsForm = document.getElementById('newsForm');
+    const newsInfo = document.getElementById('newsInfo');
+    const newsDetails = document.getElementById('newsDetails');
+
+    addNewsButton.addEventListener('click', () => {
+      newsModal.classList.remove('hidden');
+    });
+
+    closeModal.addEventListener('click', () => {
+      newsModal.classList.add('hidden');
+    });
+
+    newsForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const title = document.getElementById('title').value;
+      const content = document.getElementById('content').value;
+      const dateIssued = document.getElementById('dateIssued').value;
+      const dateTill = document.getElementById('dateTill').value;
+
+      newsModal.classList.add('hidden');
+      newsInfo.classList.remove('hidden');
+
+      newsDetails.innerHTML = `
+        <strong>Title:</strong> ${title}<br>
+        <strong>Content:</strong> ${content}<br>
+        <strong>Date Issued:</strong> ${dateIssued}<br>
+        <strong>Date Till:</strong> ${dateTill || 'N/A'}<br>
+      `;
+    });
+  </script>
+
+</body>
+</html>
