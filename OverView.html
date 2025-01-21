@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="max-w-full px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <img src="logo1.png" alt="Logo" class="h-8 w-auto">
+                    <span class="ml-2 font-semibold text-blue-900 text-2xl">Cognosphere Dynamics <span class="text-gray-900">| Overview</span></span>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 rounded-full hover:bg-gray-100">
+                        <i class="fas fa-bell text-gray-600"></i>
+                    </button>
+                    <button class="p-2 rounded-full hover:bg-gray-100">
+                        <i class="fas fa-envelope text-gray-600"></i>
+                    </button>
+                    <div class="flex items-center">
+                        <img src="img/user.svg" alt="Profile" class="h-8 w-8 rounded-full">
+                        <span class="ml-2 font-medium text-sm text-gray-700">John Doe</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="fixed left-0 top-16 w-64 h-screen bg-white border-r border-gray-200 overflow-y-auto">
+            <div class="p-4">
+                <!-- Profile Section -->
+                <!-- <div class="flex items-center space-x-3 mb-6">
+                    <img src="img/user.svg" alt="Profile" class="h-10 w-10 rounded-full">
+                    <div>
+                        <h3 class="font-medium text-gray-800">John Doe</h3>
+                        <p class="text-sm text-gray-500">Administrator</p>
+                    </div>
+                </div> -->
+
+                <!-- Navigation Links -->
+                <nav class="space-y-1">
+                    <a href="#" class="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg">
+                        <i class="fas fa-chart-pie w-5 h-5 mr-3"></i>
+                        Overview
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-flag w-5 h-5 mr-3"></i>
+                        Twogere
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-book-reader w-5 h-5 mr-3"></i>
+                        YoDegree
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-cog w-5 h-5 mr-3"></i>
+                        GoLive
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-user-cog w-5 h-5 mr-3"></i>
+                        Administrators
+                    </a><a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-cog w-5 h-5 mr-3"></i>
+                        Opportunities
+                    </a><a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-cog w-5 h-5 mr-3"></i>
+                        Mail
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main content wrapper -->
+        <div class="flex-1 ml-64">
+            <main class="p-8 pt-24">
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- Twogere Signups -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-4xl font-semibold">50,154</h3>
+                            <span class="flex items-center text-green-500 text-sm font-medium">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                                </svg>
+                                40%
+                            </span>
+                        </div>
+                        <p class="text-gray-600 mt-2">Twogere Signups</p>
+                    </div>
+                    
+                    <!-- YoDegree Signups -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-4xl font-semibold">245</h3>
+                            <span class="flex items-center text-green-500 text-sm font-medium">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                                </svg>
+                                18%
+                            </span>
+                        </div>
+                        <p class="text-gray-600 mt-2">YoDegree Signups</p>
+                    </div>
+                    
+                    <!-- GoLive Signups -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-4xl font-semibold">154</h3>
+                            <span class="flex items-center text-red-500 text-sm font-medium">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                                7%
+                            </span>
+                        </div>
+                        <p class="text-gray-600 mt-2">GoLive Signups</p>
+                    </div>
+                    
+                    <!-- Opportunities -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-4xl font-semibold">5,154</h3>
+                             <span class="flex items-center text-green-500 text-sm font-medium">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                                </svg>
+                                25%
+                            </span>
+                        </div>
+                        <p class="text-gray-600 mt-2">Opportunities</p>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Sales Statistics -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm lg:col-span-2">
+                        <h2 class="text-xl font-semibold mb-2">Sales Statistics</h2>
+                        <p class="text-gray-600 mb-4">Vestibulum purus quam scelerisque, mollis nonummy metus</p>
+                        <div class="h-64 bg-gray-50">
+                            <div class="w-full h-full flex items-center justify-center">
+                                <img src="images/Chart1.png" alt="Sales Chart" class="max-w-full h-auto">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Past 30 Days -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h2 class="text-xl font-semibold mb-2">For The Past 30 Days</h2>
+                        <p class="text-gray-600 mb-4">Fusce eget dolor id justo luctus the commodo vel pharetra nisi.</p>
+                        <div class="mt-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-600">Page Views</span>
+                                <span class="text-2xl font-semibold">320,000</span>
+                            </div>
+                            <div class="h-24 bg-gray-50">
+                                <div class="w-full h-full flex items-center justify-center">
+                                    <img src="images/Page views.png" alt="Page views" class="max-w-full h-auto">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
