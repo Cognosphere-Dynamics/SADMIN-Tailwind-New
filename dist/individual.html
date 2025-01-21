@@ -6,7 +6,7 @@
   <link rel="shortcut icon" href="./img/fav.png" type="image/x-icon">  
   <link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v5.12.1/css/pro.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">  
-  <title>Welcome To Cleopatra</title>
+  <title>Cognosphere Dynamics</title>
 </head>
 <body class="bg-gray-100">
 
@@ -15,8 +15,8 @@
 <div class="md:fixed md:w-full md:top-0 md:z-20 flex flex-row flex-wrap items-center bg-white p-6 border-b border-gray-300">
     
     <!-- logo -->
-    <div class="flex-none w-56 flex flex-row items-center">
-      <img src="img/logo.png" class="w-30 flex-none">
+    <div class="flex-none w-80 flex flex-row items-center">
+      <img src="logo1.png" class="w-20 flex-none">
       <strong class="capitalize ml-1 flex-2"> | YoDegree Individuals</strong>
 
       <button id="sliderBtn" class="flex-none text-right text-gray-900 hidden md:block">
@@ -34,7 +34,12 @@
     <!-- navbar content -->
     <div id="navbar" class="animated md:hidden md:fixed md:top-0 md:w-full md:left-0 md:mt-16 md:border-t md:border-b md:border-gray-200 md:p-10 md:bg-white flex-1 pl-3 flex flex-row flex-wrap justify-between items-center md:flex-col md:items-center">
       <!-- left -->
-      
+      <div class="text-gray-600 md:w-full md:flex md:flex-row md:justify-end md:pb-10 md:mb-10 md:border-b md:border-gray-200">
+        <a class="mr-2 transition duration-500 ease-in-out hover:text-gray-900" href="#" title="email"><i class="fad fa-envelope-open-text"></i></a>        
+        <a class="mr-2 transition duration-500 ease-in-out hover:text-gray-900" href="#" title="email"><i class="fad fa-comments-alt"></i></a>        
+        <a class="mr-2 transition duration-500 ease-in-out hover:text-gray-900" href="#" title="email"><i class="fad fa-check-circle"></i></a>        
+        <a class="mr-2 transition duration-500 ease-in-out hover:text-gray-900" href="#" title="email"><i class="fad fa-calendar-exclamation"></i></a>        
+      </div>
       <!-- end left -->      
 
       <!-- right -->
@@ -45,7 +50,7 @@
 
           <button class="menu-btn focus:outline-none focus:shadow-outline flex flex-wrap items-center">
             <div class="w-8 h-8 overflow-hidden rounded-full">
-              <img class="w-full h-full object-cover" src="img/user.svg" >
+              <img class="w-full h-full object-cover" src="img/user.svg" alt="User Avatar" >
             </div> 
 
             <div class="ml-2 capitalize flex ">
@@ -354,93 +359,79 @@
 
   
 
-    
-    <!-- General Report -->
-    <div class="grid grid-cols-3 gap-6 xl:grid-cols-1">
-
-
+<section>
+  <div class="grid grid-cols-3 gap-10 xl:grid-cols-1">
     <!-- card -->
     <div class="report-card">
         <div class="card w-[400px] h-[500px] p-6 shadow-lg bg-white rounded-lg">
             <div class="card-body flex flex-col">
-                
                 <!-- top -->
                 <div class="flex flex-row justify-between items-center">
-                    <span class="text-lg font-bold"></span>
+                    
+                    <span class="text-2xl font-medium text-black-500">5,154</span> <!-- Counter -->
                 </div>
                 <!-- end top -->
                 <hr>
-    
                 <!-- bottom -->
-                <div class="mt-8 ">
+                <div class="mt-8">
                     <span class="text-lg font-medium">Users</span>
-                </div>                
+                </div>
                 <!-- end bottom -->
-                
-    
             </div>
         </div>
     </div>
-    
     <!-- end card -->
-
 
     <!-- card -->
     <div class="report-card">
         <div class="card w-[400px] h-[500px] p-6 shadow-lg bg-white rounded-lg">
             <div class="card-body flex flex-col">
-                
                 <!-- top -->
                 <div class="flex flex-row justify-between items-center">
-                    <span class="text-lg font-bold"></span>
+                    
+                    <span class="text-2xl font-medium text-black-500">300</span> <!-- Counter -->
                 </div>
                 <!-- end top -->
                 <hr>
-    
                 <!-- bottom -->
                 <div class="mt-8">
                     <span class="text-lg font-medium">Active Users</span>
-                </div>                
+                </div>
                 <!-- end bottom -->
-                 
-    
             </div>
         </div>
     </div>
-    
     <!-- end card -->
-
 
     <!-- card -->
     <div class="report-card">
         <div class="card w-[400px] h-[500px] p-6 shadow-lg bg-white rounded-lg">
             <div class="card-body flex flex-col">
-                
                 <!-- top -->
                 <div class="flex flex-row justify-between items-center">
-                    <span class="text-lg font-medium"></span>
+                  
+                    <span class="text-2xl font-medium text-black-500">7,689</span> <!-- Counter -->
                 </div>
                 <!-- end top -->
-                 <hr>
-    
+                <hr>
                 <!-- bottom -->
                 <div class="mt-8">
-                    <span class="text-lg font-medium">Domant Users</span>
-                    
-                </div>                
+                    <span class="text-lg font-medium">Dormant Users</span>
+                </div>
                 <!-- end bottom -->
-    
             </div>
         </div>
-        
     </div>
-    
     <!-- end card -->
+</div>
+
+</section>    
+    
      
     
-    <div class="flex flex-col items-center py-4">
+    <div class="flex flex-col items-center py-2 mt-10">
         <!-- Search Bar -->
-        <div class="w-full max-w-3xl">
+        <div class="w-full ">
             <input
                 type="text"
                 placeholder="Search YoDegree Individuals"
@@ -452,7 +443,7 @@
 
                    
                 <!-- end bottom -->
-                <div class="relative overflow-xy-auto">
+                <div class="relative overflow-xy-auto mt-10">
                     <table class="w-full text-sm text-left rtl:text-right text-gray-900 dark:text-gray-400">
                         <thead class="text-xs text-white bg-blue-500">
                             <tr>
