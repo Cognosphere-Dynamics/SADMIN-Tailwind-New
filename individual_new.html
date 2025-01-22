@@ -5,9 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YoDegree Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-gray-50">
+    <nav>
+        <a href="organizations.html">Organizations</a>
+        <a href="Email Inbox.html">Email</a>
+        <a href="Institutions.html">Institutions</a>
+        <a href="Session.html">Sessions</a>
+        <a href="OverView.html">OverView</a>
+        <a href="sample.html">Sample</a>
+        <a href="lessons.html">Lessons</a>
+    </nav>
+    
+
     <!-- Navbar -->
     <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
         <div class="max-w-full px-4 sm:px-6 lg:px-8">
@@ -35,35 +47,96 @@
 
     <div class="flex">
         <!-- Sidebar -->
-        <aside class="fixed left-0 top-16 w-64 h-screen bg-white border-r border-gray-200 overflow-y-auto">
+        <aside class="fixed left-0 top-20 w-64 h-screen bg-white border-r border-gray-200 overflow-y-auto">
             <div class="p-4">
-                <!-- Profile Section -->
-                <div class="flex items-center space-x-3 mb-6">
-                    <img src="img/user.svg" alt="Profile" class="h-10 w-10 rounded-full">
-                    <div>
-                        <h3 class="font-medium text-gray-800">John Doe</h3>
-                        <p class="text-sm text-gray-500">Administrator</p>
-                    </div>
-                </div>
-
-                <!-- Navigation Links -->
                 <nav class="space-y-1">
+                    <!-- Overview Link -->
                     <a href="#" class="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg">
-                        <i class="fas fa-home w-5 h-5 mr-3"></i>
-                        Dashboard
+                        <i class="fas fa-chart-pie w-5 h-5 mr-3"></i>
+                        Overview
                     </a>
-                    <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
-                        <i class="fas fa-users w-5 h-5 mr-3"></i>
-                        Users
-                    </a>
-                    <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
-                        <i class="fas fa-chart-bar w-5 h-5 mr-3"></i>
-                        Analytics
-                    </a>
-                    <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
-                        <i class="fas fa-cog w-5 h-5 mr-3"></i>
-                        Settings
-                    </a>
+        
+                    <!-- Twogere Section -->
+                    <div class="relative">
+                        <button class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                            <i class="fas fa-flag w-5 h-5 mr-3"></i>
+                            Twogere
+                            <i class="fas fa-chevron-down ml-2"></i>
+                        </button>
+                        <div class="relative bg-white shadow-lg mt-1 rounded-lg">
+                            <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Lessons</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Sessions</a>
+                            <div class="relative">
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Subscriptions</a>
+                                <div class="pl-4">
+                                    <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <button class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                            <i class="fas fa-flag w-5 h-5 mr-3"></i>
+                            Twogere
+                            <i class="fas fa-chevron-down ml-2"></i>
+                        </button>
+                        <div class="relative bg-white shadow-lg mt-1 rounded-lg">
+                            <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Lessons</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Sessions</a>
+                            <div class="relative">
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Subscriptions</a>
+                                <div class="pl-4">
+                                    <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <button class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                            <i class="fas fa-flag w-5 h-5 mr-3"></i>
+                            Twogere
+                            <i class="fas fa-chevron-down ml-2"></i>
+                        </button>
+                        <div class="relative bg-white shadow-lg mt-1 rounded-lg">
+                            <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Lessons</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Sessions</a>
+                            <div class="relative">
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Subscriptions</a>
+                                <div class="pl-4">
+                                    <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <button class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                            <i class="fas fa-envelope w-5 h-5 mr-3"></i>
+                            Mails
+                            <i class="fas fa-chevron-down ml-2"></i>
+                        </button>
+                        <div class="relative bg-white shadow-lg mt-1 rounded-lg">
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Email Acccount</a>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <button class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                            <i class="fas fa-envelope w-5 h-5 mr-3"></i>
+                            Invoice
+                        </button>
+                    </div>
+        
                 </nav>
             </div>
         </aside>
@@ -131,7 +204,7 @@
                 </div>
 
                 <!-- Table Container -->
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden mt-4 overflow-x-auto max-h-64">
                     <div class="overflow-x-auto">
                         <table class="w-full whitespace-nowrap">
                             <thead class="bg-blue-600">
