@@ -3,12 +3,11 @@
     display: none;
 }
 
-.relative:focus-within > div,
-.relative:hover > div {
-    display: block;
-}
-
 /* Smooth transition for dropdown */
 .relative > div {
     transition: all 0.3s ease;
+}
+
+.hidden {
+    display: none;
 }
