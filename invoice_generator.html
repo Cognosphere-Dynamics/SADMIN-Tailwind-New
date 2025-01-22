@@ -194,38 +194,106 @@
                     </div>
                 </div>
 
-                <!-- Charts Section -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Sales Statistics -->
-                    <div class="bg-white p-6 rounded-lg shadow-sm lg:col-span-2">
-                        <h2 class="text-xl font-semibold mb-2">Sales Statistics</h2>
-                        <p class="text-gray-600 mb-4">Vestibulum purus quam scelerisque, mollis nonummy metus</p>
-                        <div class="h-64 bg-gray-50">
-                            <div class="w-full h-full flex items-center justify-center">
-                                <img src="images/Chart1.png" alt="Sales Chart" class="max-w-full h-auto">
+                <div class="mx-auto">
+                    <!-- Header Section -->
+                    <div class="flex justify-between items-center mb-8">
+                        <div class="flex items-center space-x-4">
+                            <img src="logo.png" alt="Logo" class="w-60">
+                            <h1 class="text-3xl font-bold text-gray-800 text-center">INVOICE</h1>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <select class="p-2 border rounded-md mb-2">
+                                <option>EUR (€)</option>
+                                <option>USD ($)</option>
+                                <option>UGX</option>
+                            </select>
+                            <button class="bg-green-500 text-white px-4 py-2 rounded-md" id="download">Download</button>
+                        </div>
+                    </div>
+            
+                    <!-- Company Details -->
+                    <div class="grid grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h4 class="font-bold mb-2">Cognosphere Dynamics Ltd</h4>
+                            <p>Plot 19-21 Port Bell Road</p>
+                            <p>P. O. Box 201025, Nakawa Kampala</p>
+                            <p>Email: sales@cognospheredynamics.com</p>
+            
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Date</label>
+                                <input type="date" class="w-full p-2 border rounded-md">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Payment Terms</label>
+                                <input type="text" class="w-full p-2 border rounded-md">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Due Date</label>
+                                <input type="date" class="w-full p-2 border rounded-md">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">PO Number</label>
+                                <input type="text" class="w-full p-2 border rounded-md">
                             </div>
                         </div>
                     </div>
-
-                    <!-- Past 30 Days -->
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <h2 class="text-xl font-semibold mb-2">For The Past 30 Days</h2>
-                        <p class="text-gray-600 mb-4">Fusce eget dolor id justo luctus the commodo vel pharetra nisi.</p>
-                        <div class="mt-6">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="text-gray-600">Page Views</span>
-                                <span class="text-2xl font-semibold">320,000</span>
+            
+                    <!-- Bill To / Ship To -->
+                    <div class="grid grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h2 class="font-bold mb-2">Bill To</h2>
+                            <textarea class="w-full p-2 border rounded-md" rows="4"></textarea>
+                        </div>
+                    </div>
+            
+                    <!-- Items Table -->
+                    <div class="mb-8">
+                        <table class="w-full mb-4">
+                            <thead>
+                                <tr class="bg-gray-500">
+                                    <th class="text-left p-2">Item</th>
+                                    <th class="text-left p-2">Quantity</th>
+                                    <th class="text-left p-2">Rate</th>
+                                    <th class="text-left p-2">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody id="itemsTable">
+                                <!-- Items will be added here -->
+                            </tbody>
+                        </table>
+                        <button onclick="addItem()" class="bg-blue-500 text-white px-4 py-2 rounded-md">+ Line Item</button>
+                    </div>
+            
+                    <!-- Totals -->
+                    <div class="flex justify-end">
+                        <div class="w-64">
+                            <div class="flex justify-between mb-2">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">$0.00</span>
                             </div>
-                            <div class="h-24 bg-gray-50">
-                                <div class="w-full h-full flex items-center justify-center">
-                                    <img src="images/Page views.png" alt="Page views" class="max-w-full h-auto">
-                                </div>
+                            <div class="flex justify-between mb-2">
+                                <span>Withholding Tax(6%):</span>
+                                <span id="tax">$0.00</span>
+                            </div>
+                            <div class="flex justify-between font-bold">
+                                <span>Total:</span>
+                                <span id="total">$0.00</span>
                             </div>
                         </div>
+                    </div>
+                    <div class="terms">
+                        <h4 class="font-bold">Terms:</h4>
+                        <p>Please pay through our bank account - EQUITY BANK UGANDA Main Branch, ACCOUNT NAME: COGNOSPHERE
+                            <br>DYNAMICS LIMITED, Account Number: 1001203186634</p>
                     </div>
                 </div>
             </main>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    <script src="invoice_generator_script.js"></script>
 </body>
 </html>
