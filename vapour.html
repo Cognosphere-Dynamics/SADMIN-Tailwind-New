@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vapour</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="max-w-full px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center p-4">
+                    <img src="images/logo.png" alt="Logo" class="h-[60px] w-auto">
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <!-- Notifications dropdown -->
+                    <div class="relative">
+                        <button class="p-2 rounded-full hover:bg-gray-100 focus:outline-none"
+                            onclick="toggleDropdown('notificationDropdown')">
+                            <i class="fas fa-bell text-gray-600"></i>
+                            <span
+                                class="absolute top-0 right-0 h-4 w-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">3</span>
+                        </button>
+                        <div id="notificationDropdown"
+                            class="hidden absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                            <div class="p-4 border-b border-gray-200">
+                                <h3 class="font-semibold">Notifications</h3>
+                            </div>
+                            <div class="max-h-96 overflow-y-auto">
+                                <a href="#" class="block p-4 hover:bg-gray-50 border-b border-gray-200">
+                                    <div class="flex items-center">
+                                        <div class="h-8 w-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-server text-blue-500"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium">New server purchase</p>
+                                            <p class="text-xs text-gray-500">2 minutes ago</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="block p-4 hover:bg-gray-50 border-b border-gray-200">
+                                    <div class="flex items-center">
+                                        <div class="h-8 w-8 bg-green-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-check text-green-500"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium">Payment successful</p>
+                                            <p class="text-xs text-gray-500">1 hour ago</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Messages dropdown -->
+                    <div class="relative">
+                        <button class="p-2 rounded-full hover:bg-gray-100 focus:outline-none"
+                            onclick="toggleDropdown('messageDropdown')">
+                            <i class="fas fa-envelope text-gray-600"></i>
+                            <span
+                                class="absolute top-0 right-0 h-4 w-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">2</span>
+                        </button>
+                        <div id="messageDropdown"
+                            class="hidden absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                            <div class="p-4 border-b border-gray-200">
+                                <h3 class="font-semibold">Messages</h3>
+                            </div>
+                            <div class="max-h-96 overflow-y-auto">
+                                <a href="#" class="block p-4 hover:bg-gray-50 border-b border-gray-200">
+                                    <div class="flex items-center">
+                                        <img src="https://ui-avatars.com/api/?name=John+Doe" alt="Sender"
+                                            class="h-8 w-8 rounded-full">
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium">Jane Smith</p>
+                                            <p class="text-xs text-gray-500">Server maintenance scheduled...</p>
+                                            <p class="text-xs text-gray-400">5 min ago</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="block p-4 hover:bg-gray-50 border-b border-gray-200">
+                                    <div class="flex items-center">
+                                        <img src="img/user.svg" alt="Sender" class="h-8 w-8 rounded-full">
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium">Mike Johnson</p>
+                                            <p class="text-xs text-gray-500">New invoice generated...</p>
+                                            <p class="text-xs text-gray-400">1 hour ago</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="relative">
+                            <button onclick="toggleDropdown('userDropdown')"
+                                class="flex items-center space-x-2 focus:outline-none">
+                                <img src="https://ui-avatars.com/api/?name=John+Doe" alt="Profile"
+                                    class="h-8 w-8 rounded-full">
+                                <span class="ml-2 font-medium text-sm text-gray-700">John Doe</span>
+                                <i class="fas fa-chevron-down text-gray-500 text-xs ml-1"></i>
+                            </button>
+
+                            <div id="userDropdown"
+                                class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                                <div class="py-2">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        <i class="fas fa-user mr-2"></i> My Profile
+                                    </a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        <i class="fas fa-cog mr-2"></i> Account Settings
+                                    </a>
+                                    <hr class="my-1 border-gray-200">
+                                    <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                                        <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="fixed left-0 top-20 w-64 h-screen bg-white border-r border-gray-200 overflow-y-auto">
+            <div class="p-4">
+                <nav class="space-y-1">
+                    <!-- Overview Link -->
+                    <a href="OverView.html" class="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg">
+                        <i class="fas fa-chart-pie w-5 h-5 mr-3"></i>
+                        Overview
+                    </a>
+
+                    <!-- Twogere Section -->
+                    <div class="relative">
+                        <button
+                            class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
+                            <i class="fas fa-flag w-5 h-5 mr-3"></i>
+                            Twogere
+                            <i class="fas fa-chevron-down ml-2"></i>
+                        </button>
+                        <div class="relative bg-white mt-1 rounded-lg hidden">
+                            <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                            <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                            <a href="lessons.html" class="block px-4 py-2 hover:bg-gray-100">Lessons</a>
+                            <a href="Session.html" class="block px-4 py-2 hover:bg-gray-100">Sessions</a>
+                            <div class="relative bg-white mt-1 rounded-lg hidden">
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Subscriptions</a>
+                                <div class="pl-4">
+                                    <a href="organizations.html"
+                                        class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                                    <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <button
+                            class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
+                            <i class="fas fa-user-graduate w-5 h-5 mr-3"></i>
+                            YoDegree
+                            <i class="fas fa-chevron-down ml-2"></i>
+                        </button>
+                        <div class="relative bg-white mt-1 rounded-lg hidden">
+                            <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                            <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                            <a href="lessons.html" class="block px-4 py-2 hover:bg-gray-100">Lessons</a>
+                            <a href="Session.html" class="block px-4 py-2 hover:bg-gray-100">Sessions</a>
+                            <div class="relative">
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Subscriptions</a>
+                                <div class="pl-4">
+                                    <a href="organizations.html"
+                                        class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                                    <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <button
+                            class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
+                            <i class="fas fa-broadcast-tower w-5 h-5 mr-3"></i>
+                            GoLive
+                            <i class="fas fa-chevron-down ml-2"></i>
+                        </button>
+                        <div class="relative bg-white mt-1 rounded-lg hidden">
+                            <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                            <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                            <a href="lessons.html" class="block px-4 py-2 hover:bg-gray-100">Lessons</a>
+                            <a href="Session.html" class="block px-4 py-2 hover:bg-gray-100">Sessions</a>
+                            <div class="relative">
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Subscriptions</a>
+                                <div class="pl-4">
+                                    <a href="organizations.html"
+                                        class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                                    <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <button
+                            class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
+                            <i class="fas fa-map-marker-alt w-5 h-5 mr-3"></i>
+                            Native
+                            <i class="fas fa-chevron-down ml-2"></i>
+                        </button>
+                        <div class="relative bg-white mt-1 rounded-lg hidden">
+                            <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                            <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                            <a href="lessons.html" class="block px-4 py-2 hover:bg-gray-100">Lessons</a>
+                            <a href="Session.html" class="block px-4 py-2 hover:bg-gray-100">Sessions</a>
+                            <div class="relative">
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Subscriptions</a>
+                                <div class="pl-4">
+                                    <a href="organizations.html"
+                                        class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                                    <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <button
+                            class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
+                            <i class="fas fa-wallet w-5 h-5 mr-3"></i>
+                            GitCash
+                            <i class="fas fa-chevron-down ml-2"></i>
+                        </button>
+                        <div class="relative bg-white mt-1 rounded-lg hidden">
+                            <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                            <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                            <a href="lessons.html" class="block px-4 py-2 hover:bg-gray-100">Lessons</a>
+                            <a href="Session.html" class="block px-4 py-2 hover:bg-gray-100">Sessions</a>
+                            <div class="relative">
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Subscriptions</a>
+                                <div class="pl-4">
+                                    <a href="organizations.html"
+                                        class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                                    <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <button
+                            class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
+                            <i class="fas fa-cloud w-5 h-5 mr-3"></i>
+                            Vapours
+                        </button>
+                    </div>
+
+                    <div class="relative">
+                        <button
+                            class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
+                            <i class="fas fa-envelope w-5 h-5 mr-3"></i>
+                            Mails
+                            <i class="fas fa-chevron-down ml-2"></i>
+                        </button>
+                        <div class="relative bg-white mt-1 rounded-lg hidden">
+                            <a href="Email Inbox.html" class="block px-4 py-2 hover:bg-gray-100">Email Acccount</a>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <button class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                            <i class="fas fa-file-invoice w-5 h-5 mr-3"></i>
+                            <a href="invoice_generator.html">Invoice</a>
+                        </button>
+                    </div>
+
+                </nav>
+            </div>
+        </aside>
+
+
+        <!-- Main content wrapper -->
+        <div class="flex-1 ml-64">
+            <main class="p-8 pt-24">
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- Purchased Servers -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-4xl font-semibold text-green-400">154</h3>
+                        </div>
+                        <p class="text-green-800 mt-2">Purchased Servers</p>
+                    </div>
+
+                    <!-- Available Servers -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-4xl font-semibold text-blue-400">500</h3>
+                        </div>
+                        <p class="text-blue-800 mt-2">Available Servers</p>
+                    </div>
+
+                    <!-- Coming soon -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-4xl font-semibold">30</h3>
+                        </div>
+                        <p class="text-gray-600 mt-2">Coming Soon</p>
+                    </div>
+
+                    <!-- Opportunities -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-4xl font-semibold text-red-600">100</h3>
+                        </div>
+                        <p class="text-red-800 mt-2">Out of Stock</p>
+                    </div>
+                </div>
+                <!--Server table-->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden mt-4 overflow-x-auto max-h-64">
+                    <div class="overflow-x-auto">
+                        <table class="w-full whitespace-nowrap">
+                            <thead class="bg-blue-600">
+                                <tr>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        ID</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        Company/Individual Name</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        Email</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        Server Purchased</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        Address</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        Contact</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        Payment method</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        Invoice number</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        Quantity</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        Date</th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                        Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -10,31 +10,125 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-gray-50">
-       <!-- Navbar -->
-  <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
-    <div class="max-w-full px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-20">
-            <div class="flex items-center p-4">
-                <img src="images/logo.png" alt="Logo" class="h-[60px] w-auto">
-                <!-- <span class="ml-2 font-semibold text-blue-900 text-2xl">Cognosphere Dynamics <span class="text-gray-900">| Overview</span></span> -->
-            </div>
-            
-            <div class="flex items-center space-x-4">
-                <button class="p-2 rounded-full hover:bg-gray-100">
-                    <i class="fas fa-bell text-gray-600"></i>
-                </button>
-                <button class="p-2 rounded-full hover:bg-gray-100">
-                    <i class="fas fa-envelope text-gray-600"></i>
-                </button>
-                <div class="flex items-center">
-                    <img src="img/user.svg" alt="Profile" class="h-8 w-8 rounded-full">
-                    <span class="ml-2 font-medium text-sm text-gray-700">John Doe</span>
+      <!-- Navbar -->
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="max-w-full px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center p-4">
+                    <img src="images/logo.png" alt="Logo" class="h-[60px] w-auto">
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <!-- Notifications dropdown -->
+                    <div class="relative">
+                        <button class="p-2 rounded-full hover:bg-gray-100 focus:outline-none"
+                            onclick="toggleDropdown('notificationDropdown')">
+                            <i class="fas fa-bell text-gray-600"></i>
+                            <span
+                                class="absolute top-0 right-0 h-4 w-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">3</span>
+                        </button>
+                        <div id="notificationDropdown"
+                            class="hidden absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                            <div class="p-4 border-b border-gray-200">
+                                <h3 class="font-semibold">Notifications</h3>
+                            </div>
+                            <div class="max-h-96 overflow-y-auto">
+                                <a href="#" class="block p-4 hover:bg-gray-50 border-b border-gray-200">
+                                    <div class="flex items-center">
+                                        <div class="h-8 w-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-server text-blue-500"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium">New server purchase</p>
+                                            <p class="text-xs text-gray-500">2 minutes ago</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="block p-4 hover:bg-gray-50 border-b border-gray-200">
+                                    <div class="flex items-center">
+                                        <div class="h-8 w-8 bg-green-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-check text-green-500"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium">Payment successful</p>
+                                            <p class="text-xs text-gray-500">1 hour ago</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Messages dropdown -->
+                    <div class="relative">
+                        <button class="p-2 rounded-full hover:bg-gray-100 focus:outline-none"
+                            onclick="toggleDropdown('messageDropdown')">
+                            <i class="fas fa-envelope text-gray-600"></i>
+                            <span
+                                class="absolute top-0 right-0 h-4 w-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">2</span>
+                        </button>
+                        <div id="messageDropdown"
+                            class="hidden absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                            <div class="p-4 border-b border-gray-200">
+                                <h3 class="font-semibold">Messages</h3>
+                            </div>
+                            <div class="max-h-96 overflow-y-auto">
+                                <a href="#" class="block p-4 hover:bg-gray-50 border-b border-gray-200">
+                                    <div class="flex items-center">
+                                        <img src="https://ui-avatars.com/api/?name=John+Doe" alt="Sender"
+                                            class="h-8 w-8 rounded-full">
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium">Jane Smith</p>
+                                            <p class="text-xs text-gray-500">Server maintenance scheduled...</p>
+                                            <p class="text-xs text-gray-400">5 min ago</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="block p-4 hover:bg-gray-50 border-b border-gray-200">
+                                    <div class="flex items-center">
+                                        <img src="img/user.svg" alt="Sender" class="h-8 w-8 rounded-full">
+                                        <div class="ml-3">
+                                            <p class="text-sm font-medium">Mike Johnson</p>
+                                            <p class="text-xs text-gray-500">New invoice generated...</p>
+                                            <p class="text-xs text-gray-400">1 hour ago</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center">
+                        <div class="relative">
+                            <button onclick="toggleDropdown('userDropdown')"
+                                class="flex items-center space-x-2 focus:outline-none">
+                                <img src="https://ui-avatars.com/api/?name=John+Doe" alt="Profile"
+                                    class="h-8 w-8 rounded-full">
+                                <span class="ml-2 font-medium text-sm text-gray-700">John Doe</span>
+                                <i class="fas fa-chevron-down text-gray-500 text-xs ml-1"></i>
+                            </button>
+
+                            <div id="userDropdown"
+                                class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                                <div class="py-2">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        <i class="fas fa-user mr-2"></i> My Profile
+                                    </a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                        <i class="fas fa-cog mr-2"></i> Account Settings
+                                    </a>
+                                    <hr class="my-1 border-gray-200">
+                                    <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                                        <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</nav>
-
+    </nav>
 <div class="flex pt-20">
     <!-- Sidebar -->
     <aside class="fixed left-0 top-20 w-64 h-screen bg-white border-r border-gray-200 overflow-y-auto">
@@ -45,10 +139,11 @@
                     <i class="fas fa-chart-pie w-5 h-5 mr-3"></i>
                     Overview
                 </a>
-    
+
                 <!-- Twogere Section -->
                 <div class="relative">
-                    <button class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
+                    <button
+                        class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
                         <i class="fas fa-flag w-5 h-5 mr-3"></i>
                         Twogere
                         <i class="fas fa-chevron-down ml-2"></i>
@@ -58,10 +153,11 @@
                         <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
                         <a href="lessons.html" class="block px-4 py-2 hover:bg-gray-100">Lessons</a>
                         <a href="Session.html" class="block px-4 py-2 hover:bg-gray-100">Sessions</a>
-                        <div class="relative">
+                        <div class="relative bg-white mt-1 rounded-lg hidden">
                             <a href="#" class="block px-4 py-2 hover:bg-gray-100">Subscriptions</a>
                             <div class="pl-4">
-                                <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                                <a href="organizations.html"
+                                    class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
                                 <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
                             </div>
                         </div>
@@ -69,8 +165,9 @@
                 </div>
 
                 <div class="relative">
-                    <button class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
-                        <i class="fas fa-flag w-5 h-5 mr-3"></i>
+                    <button
+                        class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
+                        <i class="fas fa-user-graduate w-5 h-5 mr-3"></i>
                         YoDegree
                         <i class="fas fa-chevron-down ml-2"></i>
                     </button>
@@ -82,7 +179,8 @@
                         <div class="relative">
                             <a href="#" class="block px-4 py-2 hover:bg-gray-100">Subscriptions</a>
                             <div class="pl-4">
-                                <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                                <a href="organizations.html"
+                                    class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
                                 <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
                             </div>
                         </div>
@@ -90,8 +188,9 @@
                 </div>
 
                 <div class="relative">
-                    <button class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
-                        <i class="fas fa-flag w-5 h-5 mr-3"></i>
+                    <button
+                        class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
+                        <i class="fas fa-broadcast-tower w-5 h-5 mr-3"></i>
                         GoLive
                         <i class="fas fa-chevron-down ml-2"></i>
                     </button>
@@ -103,7 +202,8 @@
                         <div class="relative">
                             <a href="#" class="block px-4 py-2 hover:bg-gray-100">Subscriptions</a>
                             <div class="pl-4">
-                                <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                                <a href="organizations.html"
+                                    class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
                                 <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
                             </div>
                         </div>
@@ -111,8 +211,9 @@
                 </div>
 
                 <div class="relative">
-                    <button class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
-                        <i class="fas fa-flag w-5 h-5 mr-3"></i>
+                    <button
+                        class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
+                        <i class="fas fa-map-marker-alt w-5 h-5 mr-3"></i>
                         Native
                         <i class="fas fa-chevron-down ml-2"></i>
                     </button>
@@ -124,7 +225,8 @@
                         <div class="relative">
                             <a href="#" class="block px-4 py-2 hover:bg-gray-100">Subscriptions</a>
                             <div class="pl-4">
-                                <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                                <a href="organizations.html"
+                                    class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
                                 <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
                             </div>
                         </div>
@@ -132,8 +234,9 @@
                 </div>
 
                 <div class="relative">
-                    <button class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
-                        <i class="fas fa-flag w-5 h-5 mr-3"></i>
+                    <button
+                        class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
+                        <i class="fas fa-wallet w-5 h-5 mr-3"></i>
                         GitCash
                         <i class="fas fa-chevron-down ml-2"></i>
                     </button>
@@ -145,7 +248,8 @@
                         <div class="relative">
                             <a href="#" class="block px-4 py-2 hover:bg-gray-100">Subscriptions</a>
                             <div class="pl-4">
-                                <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
+                                <a href="organizations.html"
+                                    class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
                                 <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
                             </div>
                         </div>
@@ -153,28 +257,16 @@
                 </div>
 
                 <div class="relative">
-                    <button class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
-                        <i class="fas fa-flag w-5 h-5 mr-3"></i>
+                    <button
+                        class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
+                        <i class="fas fa-cloud w-5 h-5 mr-3"></i>
                         Vapours
-                        <i class="fas fa-chevron-down ml-2"></i>
                     </button>
-                    <div class="relative bg-white mt-1 rounded-lg hidden">
-                        <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
-                        <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
-                        <a href="lessons.html" class="block px-4 py-2 hover:bg-gray-100">Lessons</a>
-                        <a href="Session.html" class="block px-4 py-2 hover:bg-gray-100">Sessions</a>
-                        <div class="relative">
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Subscriptions</a>
-                            <div class="pl-4">
-                                <a href="organizations.html" class="block px-4 py-2 hover:bg-gray-100">Organizations</a>
-                                <a href="individuals.html" class="block px-4 py-2 hover:bg-gray-100">Individuals</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="relative">
-                    <button class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
+                    <button
+                        class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg dropdown-btn">
                         <i class="fas fa-envelope w-5 h-5 mr-3"></i>
                         Mails
                         <i class="fas fa-chevron-down ml-2"></i>
@@ -185,11 +277,11 @@
                 </div>
                 <div class="relative">
                     <button class="w-full flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
-                        <i class="fas fa-envelope w-5 h-5 mr-3"></i>
+                        <i class="fas fa-file-invoice w-5 h-5 mr-3"></i>
                         <a href="invoice_generator.html">Invoice</a>
                     </button>
                 </div>
-    
+
             </nav>
         </div>
     </aside>

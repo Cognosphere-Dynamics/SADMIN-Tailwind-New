@@ -1,3 +1,11 @@
+document.querySelectorAll('.dropdown-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const dropdownContent = button.nextElementSibling;
+        dropdownContent.classList.toggle('hidden');
+    });
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Get all dropdown buttons
     const dropdownButtons = document.querySelectorAll('.dropdown-btn');
@@ -75,4 +83,48 @@ window.addEventListener('click', (e) => {
     if (e.target === newsModal) {
         newsModal.classList.add('hidden');
     }
+});
+
+//Messages and notifications
+
+function toggleDropdown(dropdownId, event) {
+    const dropdown = document.getElementById(dropdownId);
+    const allDropdowns = document.querySelectorAll('[id$="Dropdown"]');
+    
+    event.stopPropagation();
+    
+    allDropdowns.forEach(d => {
+        if (d.id !== dropdownId) {
+            d.classList.add('hidden');
+        }
+    });
+
+    dropdown.classList.toggle('hidden');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('[id$="Dropdown"]');
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    });
+
+    document.addEventListener('click', function(event) {
+        const dropdowns = document.querySelectorAll('[id$="Dropdown"]');
+        const buttons = document.querySelectorAll('button');
+        
+        let clickedOnButton = false;
+        buttons.forEach(button => {
+            if (button.contains(event.target)) {
+                clickedOnButton = true;
+            }
+        });
+
+        if (!clickedOnButton) {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.add('hidden');
+            });
+        }
+    });
 });
